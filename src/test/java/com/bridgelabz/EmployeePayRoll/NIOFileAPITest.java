@@ -42,5 +42,10 @@ public class NIOFileAPITest {
 			}
 			assertTrue(Files.exists(tempFile));
 		});
+		
+		//List Files, Directories as well as files with extension
+				Files.list(playPath).filter(Files::isRegularFile).forEach(System.out::println);
+				Files.newDirectoryStream(playPath).forEach(System.out::println);
+				Files.newDirectoryStream(playPath, n->n.toFile().isFile()&&n.toString().startsWith("temp")).forEach(System.out::println);
 	}
 }

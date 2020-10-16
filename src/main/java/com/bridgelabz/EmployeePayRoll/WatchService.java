@@ -15,13 +15,6 @@ public class WatchService {
 	public WatchService(Path directoryPath) throws IOException {
 		this.watcher = FileSystems.getDefault().newWatchService();
 		this.directoryWatchers = new HashMap<WatchKey,Path>();
-		scanAndRegisterDirectories(directoryPath);
 	}
 
-	private void scanAndRegisterDirectories(final Path Start) throws IOException {
-		Files.walkFileTree(Start, (simpleFileVisitor)preVisitDirectory(directoryWatchers,attrs)->{
-			registerDirWatchers(directoryWatchers);
-			return FileVisitResult.CONTINUE;
-		});
 	}
-}
