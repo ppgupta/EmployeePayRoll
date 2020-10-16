@@ -1,9 +1,6 @@
 package com.bridgelabz.EmployeePayRoll;
 
-/**
- * Hello world!
- *
- */
+
 public class EmployeePayRollData 
 {
 	private int id;
